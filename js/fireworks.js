@@ -183,7 +183,6 @@ var Fireworks = (function() {
               setLiText('li2',a);
             }
           }
-          debugger
           if (currentIndex >= word.length+nextWord.length){
             console.log(1)
             setLiText('li3',".");
