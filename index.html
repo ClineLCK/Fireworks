@@ -18,10 +18,13 @@ limitations under the License.
 <!doctype html>
   <head>
     <meta charset="uft-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
     <title>Fireworks!</title>
     <link href="css/fireworks.css" rel="stylesheet">
   </head>
   <body>
+    <!-- <button id='button' onclick='playBgMusic()'>点我开始播放</button> -->
     <div style="z-index:1001;position:absolute;">
     <ul id="topDiv" style="text-align: center;color: white;font-size: 35px;list-style:none;">
     <li id="li1" style="font-family:fantasy" ></li>
@@ -39,7 +42,7 @@ limitations under the License.
               src="third_party/July - My Soul.mp3">
     </audio> -->
     <!-- <bgsound src="third_party/July - My Soul.mp3" loop=-1> -->
-    <audio autoplay="" loop=""><source src="third_party/July - My Soul.mp3"></audio>
+    <audio id="audioMy" autoplay="" loop=""><source src="third_party/July - My Soul.mp3"></audio>
   </body>
   <script src="third_party/requestanimframe.js"></script>
   <script src="js/fireworks.js"></script>
@@ -50,11 +53,37 @@ limitations under the License.
     //   document.getElementById('topDiv').style.display='block'
     // },73000);
 
-
     function setLiText(li,b){
       var a= document.getElementById(li+"").innerHTML;
       document.getElementById(li+"").innerHTML=a+b;
     }
+
+    function autoPlayMusic() {   
+    /* 自动播放音乐效果，解决浏览器或者APP自动播放问题 */   
+    function musicInBrowserHandler() {   
+        musicPlay(true);   
+        document.body.removeEventListener('touchstart', musicInBrowserHandler);   
+    }   
+    document.body.addEventListener('touchstart', musicInBrowserHandler);   
+    /* 自动播放音乐效果，解决微信自动播放问题 */   
+    function musicInWeixinHandler() {   
+        musicPlay(true);   
+        document.addEventListener("WeixinJSBridgeReady", function () {   
+            musicPlay(true);   
+        }, false);   
+        document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);   
+    }   
+    document.addEventListener('DOMContentLoaded', musicInWeixinHandler);   
+}   
+function musicPlay(isPlay) {   
+    var media = document.getElementById('audioMy');   
+    if (isPlay && media.paused) {   
+        media.play();   
+    }   
+    if (!isPlay && !media.paused) {   
+        media.pause();   
+    }   
+} 
 
   </script>
 </html>
