@@ -35,15 +35,17 @@ limitations under the License.
       <img src="images/big-glow.png" id="big-glow" />
       <img src="images/small-glow.png" id="small-glow" />
     </aside>
-    <audio  id="audio" autoplay="autoplay" controls="controls" loop="0" preload="auto" type="audio/mpeg"
+<!--     <audio  id="audio" autoplay="autoplay" controls="controls" loop="0" preload="auto" type="audio/mpeg"
               src="third_party/July - My Soul.mp3">
-    </audio>
+    </audio> -->
+    <!-- <bgsound src="third_party/July - My Soul.mp3" loop=-1> -->
+    <audio autoplay="" loop=""><source src="third_party/July - My Soul.mp3"></audio>
   </body>
   <script src="third_party/requestanimframe.js"></script>
   <script src="js/fireworks.js"></script>
   <script>
-    var asd= document.getElementById('audio')
-    asd.play();
+    // var asd= document.getElementById('audio')
+    // asd.play();
     // setTimeout(function(){
     //   document.getElementById('topDiv').style.display='block'
     // },73000);
