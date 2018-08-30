@@ -22,13 +22,37 @@ limitations under the License.
     <link href="css/fireworks.css" rel="stylesheet">
   </head>
   <body>
+    <div style="z-index:1001;position:absolute;">
+    <ul id="topDiv" style="text-align: center;color: white;font-size: 35px;list-style:none;">
+    <li id="li1" style="font-family:fantasy" ></li>
+    <li id="li2" style="font-family:fantasy"></li>
+    <li id="li3" style="font-family:fantasy"></li>
+    </ul>
+    <div/>
 
     <!-- Hiding library elements in the DOM is fun -->
     <aside id="library">
       <img src="images/big-glow.png" id="big-glow" />
       <img src="images/small-glow.png" id="small-glow" />
     </aside>
+    <audio  id="audio" autoplay="autoplay" controls="controls" loop="0" preload="auto" type="audio/mpeg"
+              src="third_party/July - My Soul.mp3">
+    </audio>
   </body>
   <script src="third_party/requestanimframe.js"></script>
   <script src="js/fireworks.js"></script>
+  <script>
+    var asd= document.getElementById('audio')
+    asd.play();
+    // setTimeout(function(){
+    //   document.getElementById('topDiv').style.display='block'
+    // },73000);
+
+
+    function setLiText(li,b){
+      var a= document.getElementById(li+"").innerHTML;
+      document.getElementById(li+"").innerHTML=a+b;
+    }
+
+  </script>
 </html>

@@ -62,8 +62,8 @@ var Fireworks = (function() {
 
     // add the canvas in
     document.body.appendChild(mainCanvas);
-    document.addEventListener('mouseup', createFirework, true);
-    document.addEventListener('touchend', createFirework, true);
+    // document.addEventListener('mouseup', createFirework, true);
+    // document.addEventListener('touchend', createFirework, true);
 
     setInterval(startFirework,1000);
 
@@ -72,9 +72,7 @@ var Fireworks = (function() {
   }
 
   function startFirework(){
-    count++;
     createFirework();
-    console.log(count)
   }
 
   /**
@@ -82,8 +80,8 @@ var Fireworks = (function() {
    * new firework on touch / click
    */
   function createFirework() {
+    count++;
     createParticle();
-    currentIndex++;
   }
 
   /**
@@ -170,13 +168,25 @@ var Fireworks = (function() {
           } else {
             FireworkExplosions.circle(firework);
           }
-          
-          if(count>20 && currentIndex<word.length+nextWord.length){
+          if(count>10){
+            currentIndex++;
+          }
+          if(count>10 && currentIndex<word.length+nextWord.length){
+             var a;
             if(currentIndex<word.length){
-              firework.text(mainContext,hX,hY+100,word[currentIndex],200);
+              a=word[currentIndex];
+              firework.text(mainContext,hX,hY+100,a,200);
+              setLiText('li1',a);
             }else{
-              firework.text(mainContext,hX,hY+100,nextWord[currentIndex-word.length],200);
+              a=nextWord[currentIndex-word.length];
+              firework.text(mainContext,hX,hY+100,a,200);
+              setLiText('li2',a);
             }
+          }
+          debugger
+          if (currentIndex >= word.length+nextWord.length){
+            console.log(1)
+            setLiText('li3',".");
           }
         }
       }
@@ -349,19 +359,6 @@ Particle.prototype = {
     context.restore();
 
 
-    if(currentIndex>word.length+nextWord.length){
-      this.text(context,500,100,word,50);
-      this.text(context,500,200,nextWord,50);
-    }
-
-    // currentIndex++;
-    // hX=0;
-    // hY=0;
-
-    // }
-
-
-
   },
 
   text: function(context,hx,hy,str,a) {
@@ -371,29 +368,6 @@ Particle.prototype = {
     context.fillStyle = '#ccc';
     context.strokeText(str, hx, hy);
     context.fillText(str, hx, hy); 
-
-
-    // context.fillStyle = "blue";
-    // context.font = "bold 40px sans-serif";
-    
-    // context.textBaseline = "top";
-    // context.fillText("Hello Canvas", 100, 100);
-    
-    // context.textBaseline = "middle";
-    // context.fillText("Hello Canvas", 100, 300);
-    
-    // context.textBaseline = "bottom";
-    // context.fillText("Hello Canvas", 100, 500);
-    
-    // context.moveTo(0, 100);
-    // context.lineTo(1000, 100);
-    // context.moveTo(0, 300);
-    // context.lineTo(1000, 300);
-    // context.moveTo(0, 500);
-    // context.lineTo(1000, 500);
-    // context.stroke();
-
-
   }
 
 };
