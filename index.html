@@ -23,7 +23,7 @@ limitations under the License.
     <title>Gift - QIQI</title>
     <link href="css/fireworks.css" rel="stylesheet">
   </head>
-  <body>
+  <body >
     <!-- <button id='button' onclick='playBgMusic()'>点我开始播放</button> -->
     <div style="z-index:1001;position:absolute;">
     <ul id="topDiv" style="text-align: center;color: white;font-size: 35px;list-style:none;">
@@ -38,21 +38,21 @@ limitations under the License.
       <img src="images/big-glow.png" id="big-glow" />
       <img src="images/small-glow.png" id="small-glow" />
     </aside>
-   <!--  <audio  id="audio" autoplay="autoplay" controls="controls" loop="0" preload="auto" type="audio/mpeg"
-              src="third_party/July - My Soul.mp3">
+    <!-- <audio  id="audioMy" autoplay="autoplay" controls="controls" loop="0" preload="auto" type="audio/mpeg" hidden="true"
+              src="">
     </audio> -->
-    <embed src="third_party/July - My Soul.mp3" autostart="true" loop="true" hidden="true" id="audioMy"></embed>
+    <!-- <embed src="third_party/July - My Soul.mp3" autostart="true" loop="true" hidden="true" id="audioMy"></embed> -->
     <!-- <bgsound src="third_party/July - My Soul.mp3" loop=-1> -->
-    <!-- <audio id="audioMy" autoplay="" loop=""><source src="third_party/July - My Soul.mp3"></audio> -->
+    <audio id="audioMy" autoplay="" loop=""><source src="third_party/July - My Soul.mp3"></audio>
   </body>
   <script src="third_party/requestanimframe.js"></script>
   <script src="js/fireworks.js"></script>
   <script>
     // var asd= document.getElementById('audio')
     // asd.play();
-    // setTimeout(function(){
-    //   document.getElementById('topDiv').style.display='block'
-    // },73000);
+//     setTimeout(function(){
+//       audioAutoPlay('audioMy');
+//     },3000);
 
     function setLiText(li,b){
       var a= document.getElementById(li+"").innerHTML;
@@ -60,11 +60,12 @@ limitations under the License.
     }
 
     function audioAutoPlay(id){        
-      var audio = document.getElementById(id),          
-      play = function(){                
+      var audio = document.getElementById(id);
+     var  play = function(){                
         audio.play();                
         document.removeEventListener("touchstart",play, false);            
-      };        
+      };   
+           
       audio.play();       
       document.addEventListener("WeixinJSBridgeReady", function () {            
         play();        
@@ -73,8 +74,10 @@ limitations under the License.
         play();        
        }, false);        
       document.addEventListener("touchstart",play, false);    
-    }    
-    audioAutoPlay('audioMy');
+    }   
+   
+
+    audioAutoPlay('audioMy');
 
 
   </script>
