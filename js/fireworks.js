@@ -17,11 +17,11 @@
 var count = 0
 
 var hX= 0,hY= 0;
-var word='Guan Jia Da Xiao Jie, Happy Birthday !';
-var nextWord='To Be A Good Girl !';
+var word='';
+var nextWord='';
 
-// var word='1';
-// var nextWord='2';
+var word='3.7  Happy holidays!';
+var nextWord='forgive me';
 
 var currentIndex=-1;
 
@@ -175,18 +175,18 @@ var Fireworks = (function() {
              var a;
             if(currentIndex<word.length){
               a=word[currentIndex];
-              firework.text(mainContext,hX,hY+100,a,200);
+              // firework.text(mainContext,hX,hY+100,a,200);
               setLiText('li1',a);
             }else{
               a=nextWord[currentIndex-word.length];
-              firework.text(mainContext,hX,hY+100,a,200);
+              // firework.text(mainContext,hX,hY+100,a,200);
               setLiText('li2',a);
             }
           }
-          if (currentIndex >= word.length+nextWord.length){
-            console.log(1)
-            setLiText('li3',".");
-          }
+          // if (currentIndex >= word.length+nextWord.length){
+          //   console.log(1)
+          //   setLiText('li3',".");
+          // }
         }
       }
 
