@@ -20,8 +20,8 @@ var hX= 0,hY= 0;
 var word='';
 var nextWord='';
 
-var word='3.7  Happy holidays!';
-var nextWord='forgive me';
+var word='元宵节快乐';
+var nextWord='聪明小孩';
 
 var currentIndex=-1;
 
